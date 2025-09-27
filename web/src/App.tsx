@@ -12,17 +12,22 @@ import { fetchNui } from './utils/fetchNui';
 import { useDragDropManager } from 'react-dnd';
 import KeyPress from './components/utils/KeyPress';
 
+
 debugData([
   {
     action: 'setupInventory',
     data: {
+      playerData: {
+        playerID: '1',
+      },
       leftInventory: {
         id: 'test',
         type: 'player',
         slots: 50,
         label: 'Bob Smith',
         weight: 3000,
-        maxWeight: 5000,
+        maxWeight: 50000,
+        backpackDisabled: false,
         items: [
           {
             slot: 1,
@@ -34,36 +39,35 @@ debugData([
               mustard: '60%',
               ketchup: '30%',
               mayo: '10%',
+              rarity: 'legendary',
             },
             count: 5,
           },
-          { slot: 2, name: 'powersaw', weight: 0, count: 1, metadata: { durability: 75 } },
+          { slot: 2, name: 'weapon_combatpistol', weight: 0, count: 1, metadata: { durability: 75 } },
           { slot: 3, name: 'copper', weight: 100, count: 12, metadata: { type: 'Special' } },
           {
             slot: 4,
             name: 'water',
-            weight: 100,
-            count: 1,
+            weight: 10000,
+            count: 10,
             metadata: { description: 'Generic item description' },
           },
-          { slot: 5, name: 'water', weight: 100, count: 1 },
+          { slot: 10, name: 'water', weight: 100, count: 1 },
           {
             slot: 6,
-            name: 'backwoods',
+            name: 'burger',
             weight: 100,
-            count: 1,
-            metadata: {
-              label: 'Russian Cream',
-              imageurl: 'https://i.imgur.com/2xHhTTz.png',
-            },
+            count: 6,
           },
+          { slot:7, name: 'burger', weight: 100, count: 1 },
+          { slot: 8, name: 'energy_junk1', weight: 100, count: 1 },
         ],
       },
       rightInventory: {
         id: 'shop',
-        type: 'crafting',
-        slots: 5000,
-        label: 'Bob Smith',
+        type: 'shop',
+        slots: 100,
+        label: 'Drop',
         weight: 3000,
         maxWeight: 5000,
         items: [
@@ -83,6 +87,7 @@ debugData([
           },
         ],
       },
+
     },
   },
 ]);

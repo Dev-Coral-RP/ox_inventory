@@ -8,6 +8,7 @@ export enum InventoryType {
 }
 
 export type Inventory = {
+  backpackDisabled: boolean;
   id: string;
   type: string;
   slots: number;

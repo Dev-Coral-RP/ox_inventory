@@ -1,3 +1,3 @@
-export const Locale: {
-  [key: string]: string;
-} = {};
+export const Locale: { [key: string]: string } = {
+  $: '£',   // currency symbol used in shop price labels
+};

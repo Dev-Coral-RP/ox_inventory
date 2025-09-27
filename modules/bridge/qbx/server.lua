@@ -3,6 +3,7 @@ assert(lib.checkDependency('qbx_vehicles', '1.2.0'), 'qbx_vehicles v1.2.0 or hig
 local Inventory = require 'modules.inventory.server'
 local QBX = exports.qbx_core
 
+
 AddEventHandler('qbx_core:server:playerLoggedOut', server.playerDropped)
 
 AddEventHandler('qbx_core:server:onGroupUpdate', function(source, groupName, groupGrade)

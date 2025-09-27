@@ -145,7 +145,7 @@ export const getItemUrl = (item: string | SlotWithItem) => {
 
     const metadata = item.metadata;
 
-    // @todo validate urls and support webp
+    // @todo validate urls
     if (metadata?.imageurl) return `${metadata.imageurl}`;
     if (metadata?.image) return `${imagepath}/${metadata.image}.png`;
   }

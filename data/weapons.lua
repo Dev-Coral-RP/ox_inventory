@@ -167,7 +167,8 @@ return {
 			label = 'Combat Pistol',
 			weight = 785,
 			durability = 0.2,
-			ammoname = 'ammo-9'
+			ammoname = 'ammo-9',
+			rarity = 'legendary',
 		},
 
 		['WEAPON_COMBATSHOTGUN'] = {
@@ -1810,6 +1811,7 @@ return {
 		['ammo-9'] = {
 			label = '9mm',
 			weight = 7,
+			rarity = 'epic',
 		},
 
 		['ammo-firework'] = {

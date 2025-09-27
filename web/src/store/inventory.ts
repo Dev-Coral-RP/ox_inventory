@@ -16,6 +16,7 @@ const initialState: State = {
     slots: 0,
     maxWeight: 0,
     items: [],
+    backpackDisabled: false,
   },
   rightInventory: {
     id: '',
@@ -23,6 +24,17 @@ const initialState: State = {
     slots: 0,
     maxWeight: 0,
     items: [],
+    backpackDisabled: false,
+  },
+  playerData: {
+    health: 0,
+    armor: 0,
+    food: 0,
+    water: 0,
+    id: 0,
+    job: '',
+    cash: 0,
+    bank: 0,
   },
   additionalMetadata: new Array(),
   itemAmount: 0,
@@ -62,6 +74,9 @@ export const inventorySlice = createSlice({
 
       container.weight = action.payload;
     },
+    setPlayerData: (state, action: PayloadAction<{ health: number; armor: number; food: number; water: number }>) => {
+      state.playerData = { ...state.playerData, ...action.payload };
+    }
   },
   extraReducers: (builder) => {
     builder.addMatcher(isPending, (state) => {
@@ -95,10 +110,11 @@ export const {
   stackSlots,
   refreshSlots,
   setContainerWeight,
+  setPlayerData,
 } = inventorySlice.actions;
 export const selectLeftInventory = (state: RootState) => state.inventory.leftInventory;
 export const selectRightInventory = (state: RootState) => state.inventory.rightInventory;
 export const selectItemAmount = (state: RootState) => state.inventory.itemAmount;
 export const selectIsBusy = (state: RootState) => state.inventory.isBusy;
-
+export const selectPlayerData = (state: RootState) => state.inventory.playerData;
 export default inventorySlice.reducer;

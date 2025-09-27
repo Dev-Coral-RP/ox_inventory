@@ -80,31 +80,31 @@ export const MenuComponent = React.forwardRef<HTMLButtonElement, MenuProps & Rea
 
     const { isMounted, styles } = useTransitionStyles(context);
 
-    useEffect(() => {
-      if (isNested) return;
-      if (menu.coords) {
-        refs.setPositionReference({
-          getBoundingClientRect() {
-            return {
-              width: 0,
-              height: 0,
-              x: menu.coords!.x,
-              y: menu.coords!.y,
-              top: menu.coords!.y,
-              right: menu.coords!.x,
-              bottom: menu.coords!.y,
-              left: menu.coords!.x,
-            };
-          },
-        });
+    // useEffect(() => {
+    //   if (isNested) return;
+    //   if (menu.coords) {
+    //     refs.setPositionReference({
+    //       getBoundingClientRect() {
+    //         return {
+    //           width: 0,
+    //           height: 0,
+    //           x: menu.coords!.x,
+    //           y: menu.coords!.y,
+    //           top: menu.coords!.y,
+    //           right: menu.coords!.x,
+    //           bottom: menu.coords!.y,
+    //           left: menu.coords!.x,
+    //         };
+    //       },
+    //     });
 
-        setIsOpen(true);
-      }
+    //     setIsOpen(true);
+    //   }
 
-      if (!menu.coords) {
-        setIsOpen(false);
-      }
-    }, [menu]);
+    //   if (!menu.coords) {
+    //     setIsOpen(false);
+    //   }
+    // }, [menu]);
 
     const hover = useHover(context, {
       enabled: isNested,
