@@ -722,12 +722,7 @@ lib.addCommand('viewinv', {
 end)
 
 
--- server/backpack.lua
 
--- Adjust capacities per tier here
--- server/backpack.lua
-
--- Tier capacities
 local BackpackTiers = {
     common =  { slots = 20, weight = 20000 },
     rare   =  { slots = 30, weight = 35000 },
@@ -820,31 +815,36 @@ RegisterNetEvent('bp:server:open', function(slot)
     TriggerClientEvent('ox_inventory:openInventory', src, 'stash', stashId)
 end)
 
--- 🔒 Prevent backpacks inside backpack stashes
--- Uses the built-in hooks system (ox_inventory v2.44+)
--- 🔒 Block backpacks inside backpack stashes AND kick the player
+
 exports.ox_inventory:registerHook('swapItems', function(payload)
-    -- We only care about moves into a backpack stash
+ 
     local toInv   = tostring(payload.toInventory or '')
     local toType  = tostring(payload.toType or '')
     if toType ~= 'stash' or toInv:sub(1, 9) ~= 'backpack:' then
         return true
     end
 
-    -- Identify the item being moved
+    
     local moving  = payload.fromSlot or {}
     local name    = moving.name or payload.item or payload.itemName
     if not name then return true end
 
-    -- If they're trying to put ANY backpack_* into a backpack stash → block + kick
+   
     if name:sub(1, 9) == 'backpack_' then
         local src = payload.source
         if src then
             -- Optional: log server-side
-            print(('[backpack] %s attempted bag-in-bag (%s -> %s)'):format(src, name, toInv))
-            DropPlayer(src, 'Nice try — No exploiting in this server.')
+           -- print(('[backpack] %s attempted bag-in-bag (%s -> %s)'):format(src, name, toInv))
+           -- DropPlayer(src, 'Nice try — No exploiting in this server.')
+
+			TriggerClientEvent('ox_lib:notify', src, {
+						title = 'STOP',
+						description = 'Nice Try :)',
+						type = 'warning'
+					})
+
         end
-        return false   -- cancel the move regardless
+        return false   
     end
 
     return true

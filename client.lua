@@ -30,7 +30,7 @@ end)
 
 RegisterNUICallback('getItemDefs', function(_, cb)
     local defs = exports.ox_inventory:Items()
-    cb(defs or {})  -- always callback with a table, never leave it hanging
+    cb(defs or {})
 end)
 
 exports('getCurrentWeapon', function()
