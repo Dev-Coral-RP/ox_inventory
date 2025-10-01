@@ -8,24 +8,7 @@ local Weapon = require 'modules.weapon.client'
 local currentWeapon
 
 
-RegisterNetEvent('bp:client:open', function(a, b)
-    local slot
 
-    if type(a) == 'table' and a.slot then
-        slot = a.slot
-    elseif type(b) == 'number' then
-        slot = b
-    elseif type(a) == 'number' then
-        slot = a
-    end
-
-    if not slot then
-        print('[backpack] no slot provided from ox_inventory use event')
-        return
-    end
-
-    TriggerServerEvent('bp:server:open', slot)
-end)
 
 
 RegisterNUICallback('getItemDefs', function(_, cb)

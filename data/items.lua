@@ -2,11 +2,10 @@ return {
 
 ['backpack_common'] = {
     label = 'Backpack (Common)',
-    weight = 1200,        -- weight of the bag itself
+    weight = 1200,     
     stack = false,
-    consume = 0,          -- don’t consume on use
-    metadata = { tier = 'common', rarity = 'uncommon' },
-    client = { event = 'bp:client:open' },  -- call our client open event
+    consume = 0,        
+    rarity = 'uncommon',
 },
 
 ['backpack_rare'] = {
@@ -14,8 +13,7 @@ return {
     weight = 1400,
     stack = false,
     consume = 0,
-    metadata = { tier = 'rare', rarity = 'rare' },
-    client = { event = 'bp:client:open' },
+    rarity = 'uncommon',
 },
 
 ['backpack_epic'] = {
@@ -23,8 +21,8 @@ return {
     weight = 1600,
     stack = false,
     consume = 0,
-    metadata = { tier = 'epic', rarity = 'epic' },
-    client = { event = 'bp:client:open' },
+    rarity = 'uncommon',
+   
 },
 
 

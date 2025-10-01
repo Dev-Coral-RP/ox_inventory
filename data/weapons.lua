@@ -661,6 +661,7 @@ return {
 		['WEAPON_STUNGUN'] = {
 			label = 'Tazer',
 			weight = 227,
+			rarity = 'police',
 			durability = 0.1,
 		},
 
