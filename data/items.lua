@@ -13,7 +13,7 @@ return {
     weight = 1400,
     stack = false,
     consume = 0,
-    rarity = 'uncommon',
+    rarity = 'rare',
 },
 
 ['backpack_epic'] = {
@@ -21,7 +21,7 @@ return {
     weight = 1600,
     stack = false,
     consume = 0,
-    rarity = 'uncommon',
+    rarity = 'epic',
    
 },
 
